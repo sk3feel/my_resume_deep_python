@@ -5,6 +5,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <style>
+      @font-face {
+  font-family: 'Navigo';
+  src: url('../fonts/Navigo-Regular-Desktop.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Темные и светлые темы */
+:root {
+  --background-color2: #102D69;
+  --background-color: #ffffff;
+  --text-color2: black;
+  --text-color: #c3cad9;
+}
+
+[data-theme="dark"] {
+  --background-color2: #2d3340;
+  --background-color: black;
+  --text-color2: #ffffff;
+  --text-color: #ffffff;
+}
+
+body {
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+
+  background-color: var(--background-color);
+  color: var(--text-color2);
+}
+
+.dark-bg {
+  background-color: #102D69;
+  color: #fff;
+
+
+  background-color: var(--background-color2);
+  color: var(--text-color);
+}
+
+.dark-bg .navbar-toggler {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.font-color-blue {
+  color: #102D69;
+}
+
+.btn-blue {
+  font-size: 1.15rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: #102D69;
+  border-color: #102D69;
+}
+
+.promo-text {
+  font-size: 24px;
+  opacity: .75;
+  font-family: 'Roboto', sans-serif;
+}
+
+.link-border-bottom {
+  display: inline-block;
+  padding:0;
+  text-decoration: none;
+  line-height: 1.3;
+  border-bottom: 1px solid #6c757d;
+  transition: .4s ease;
+}
+
+.text-white.link-border-bottom {
+  border-bottom: 1px solid #fff;
+}
+
+.link-border-bottom:hover {
+  border-color: transparent;
+}
+
+.link {
+  color: rgba(255,255,255,.8);
+  text-decoration: none;
+  transition: .4s ease;
+  border-bottom: 1px solid rgba(255,255,255,.8);
+}
+
+.link:hover {
+  color: rgba(255,255,255,.8);
+  text-decoration: none;
+  border-color: transparent;
+}
+
+.link.link-blue {
+  color: #102D69;
+  border-color: #102D69;
+}
+
+.link.link-blue:hover {
+  color: #102D69;
+  border-color: transparent;
+}
+
+.link.link-purple {
+  color: #DFC7F2;
+  border-color: #DFC7F2;
+}
+
+.link.link-purple:hover {
+  color: #DFC7F2;
+  border-color: transparent;
+}
+
+.link.link-yellow {
+  color: #DCFF05;
+  border-color: #DCFF05;
+}
+
+.link.link-yellow:hover {
+  color: #DCFF05;
+  border-color: transparent;
+}
+
+.text-yellow {
+  color: #DCFF05 !important;
+}
+
+.logo:hover {
+  text-decoration: none;
+  transition: .4s ease;
+  opacity: .85;
+}
+
+.logo-title {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.logo-subtitle {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.story p {
+  font-size: 24px;
+  line-height: 35px;
+}
+
+.story-link {
+  color: #102D69;
+  text-decoration: none;
+  transition: .4s ease;
+  border-bottom: 2px solid #102D69;
+}
+
+.story-link:hover {
+  color: #102D69;
+  text-decoration: none;
+  border-color: transparent;
+}
+
+.greeting-text {
+  color: #DFC7F2;
+  font-family: 'Navigo', sans-serif;
+  font-weight: normal;
+}
+
+.navbar .nav-link.link-purple {
+  color: #DFC7F2 !important;
+}
+
+.navbar .nav-link.link-purple:hover {
+  color: #DFC7F2 !important;
+}
+
+.logo-right {
+  margin-left: 6px;
+}
+
+.text-blue {
+  color: #DFC7F2 !important;
+}
+
+h1.greeting-text {
+  color: #DFC7F2;
+}
+
+.btn-yellow {
+  background-color: #DCFF05;
+  color: #102D69;
+}
+
+.btn-yellow:hover {
+  background-color: #c4e004;  /* Немного темнее при наведении */
+  color: #102D69;
+}
+
+.navigo-font {
+  font-family: 'Navigo', sans-serif;
+  font-weight: normal;
+}
+
+.text-purple {
+  color: #DFC7F2 !important;
+}
+
+.text-white-40 {
+  color: #fff !important;
+  opacity: 0.4;
+}
+
+.position {
+  margin-left: 20px;
+}
+
+    </style>
     <title>Крамин Карим Тимурович | Mastodon</title>
   </head>
   <body>
@@ -160,5 +389,118 @@
     <!-- Подключение скриптов Bootstrap и собственного скрипта -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="static/js/custom.js"></script>
+
+    <script>
+
+      const translations = {
+        ru: {
+          my_name: "Карим Крамин",
+          greeting: "Привет! Меня зовут Карим.",
+          intro: "Привет! Спасибо, что зашел сюда. Я —студент ПМИ, Факультет компьютерных наук, ВШЭ. Хочу поднять перцентиль и пройти на МОП.",
+          about_me: "Обо мне",
+          about_me_title: "Обо мне",
+          about_me_content: "Я Карим, учусь на втором курсе ПМИ ФКН ВШЭ. Люблю велосипедный спорт, имею 3к часов в Fortnite и даже какие никакие призовые(3$).",
+          experience: "Опыт работы",
+          experience_title: "Мой опыт учёбы",
+          position_title: "Студент Яндекс Лицея",
+          position_description: "Закончил Лицей Академии Яндекса, еще учась в школе, с отличием! Учился в 131 Лицее города Казани.",
+          goals_title: "Мои цели",
+          goals_content: "Мои цели: Закончить семестр без троек, поступить на моп, выучить английский на неплохом уровне",
+          collaboration: "Сотрудничество",
+          collaboration_title: "Сотрудничество",
+          collaboration_intro: "Если вас заинтересовало мое резюме, то вы можете связаться со мной следующими способами:",
+          write_me: "Написать мне",
+          made_with_love: "Сделано с любовью в 2024 году.",
+          hse: "Студент НИУ «ВШЭ»",
+          write_tg:"Написать в Telegram",
+          write_email:"Написать на почту",
+          watch_cv:"Посмотреть резюме",
+          edu_period:"Сентябрь 2023 – Настоящее время",
+          write_me_btn:"Написать мне",
+          yandex:"Студент Яндекс Лицея",
+          yandex_period:"Сентябрь 2021 – 2023"
+        },
+        en: {
+          my_name: "Karim Kramin",
+          greeting: "Hello! My name is Karim.",
+          intro: "Hi! Thanks for stopping by. I’m a student of Applied Mathematics and Informatics (AMI) at the Faculty of Computer Science, HSE University. I want to raise my percentile and get into the MOP program.",
+          about_me: "About Me",
+          about_me_title: "About Me",
+          about_me_content: "My name is Karim, and I’m a second-year AMI student at FCS HSE. I enjoy cycling, have 3,000 hours in Fortnite, and even earned some prize money ($3)!",
+          experience: "Experience",
+          experience_title: "My Experience",
+          position_title: "Data Science Student",
+          position_description: "I graduated with honors from the Yandex Academy Lyceum while still in school! Before that, I studied at Lyceum 131 in Kazan.",
+          goals_title: "My Goals",
+          goals_content: "Finish the semester without any Cs, get into the MOP program, learn English to a decent level.",
+          collaboration: "Collaboration",
+          collaboration_title: "Collaboration",
+          collaboration_intro: "If you are interested in my resume, you can contact me in the following ways:",
+          write_me: "Write to me",
+          made_with_love: "Made with love in 2024 year.",
+          hse:"Student of HSE",
+          write_tg:"Write to Telegram",
+          write_email:"Write on email",
+          watch_cv:"Watch CV",
+          edu_period:"September 2023 - Now",
+          write_me_btn:"Write to me",
+          yandex:"Student of Yandex Lyceum",
+          yandex_period:"September 2021 - 2023"
+        }
+      };
+
+      function applyTranslation(lang) {
+        document.querySelectorAll('[data-key]').forEach(element => {
+          const key = element.getAttribute('data-key');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+      }
+
+      function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      }
+
+      function initTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else {
+          // Автоматическое определение системной темы
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          // Автоматическое переключение по времени суток
+          const hour = new Date().getHours();
+          const isNight = hour >= 19 || hour < 7;
+          if (prefersDark || isNight) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+          }
+        }
+      }
+
+      function initLanguage() {
+        const savedLang = localStorage.getItem('language') || 'ru';
+        document.getElementById('language-select').value = savedLang;
+        applyTranslation(savedLang);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        initLanguage();
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+        document.getElementById('language-select').addEventListener('change', (e) => {
+          const selectedLang = e.target.value;
+          applyTranslation(selectedLang);
+          localStorage.setItem('language', selectedLang);
+        });
+      });
+    </script>
   </body>
 </html>
